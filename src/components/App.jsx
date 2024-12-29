@@ -20,7 +20,7 @@ function App() {
     setInputText('')
   }
 
-  function deleteItem(){
+  function deleteItem(id){
     setItems((prevItens) => {
          return prevItens.filter((item, index) => {
             return index !== id // que seja diferente do id
@@ -42,11 +42,11 @@ function App() {
       <div>
         <ul>
           {
-            items.map( (todoItem, index) => <TodoItem 
+            items.map( (todoItem, index) => <TodoItem
             key={index} 
             id={index}
             text = {todoItem}
-            onChecked={deleteItem}/> )
+            onChecked={() => deleteItem(index)}/> )
           }
         </ul>
       </div>
